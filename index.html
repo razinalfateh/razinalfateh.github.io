@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="Cybersecurity portfolio of Ahmad Razin Bin Azman, Security Consultant specializing in penetration testing and security assessments."
+    content="Cybersecurity portfolio of Ahmad Razin Bin Azman, Security Consultant specialising in penetration testing and security assessments."
   >
 
   <title>
@@ -20,7 +20,8 @@
   <style>
     :root {
       --background: #050b08;
-      --card: rgba(8, 24, 15, 0.94);
+      --card-dark: rgba(4, 14, 8, 0.96);
+      --card-light: rgba(9, 26, 16, 0.94);
       --green: #00ff88;
       --green-light: #a5ffc5;
       --white: #f5fff8;
@@ -71,6 +72,7 @@
     }
 
     img {
+      display: block;
       max-width: 100%;
     }
 
@@ -150,6 +152,10 @@
       margin: 0 auto;
     }
 
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
     .navbar {
       position: sticky;
       top: 0;
@@ -210,6 +216,10 @@
     .nav-links a:hover::after {
       transform: scaleX(1);
     }
+
+    /* =========================================
+       HERO
+    ========================================= */
 
     .hero {
       padding: 90px 0 55px;
@@ -429,6 +439,10 @@
         0 0 16px rgba(67, 191, 255, 0.17);
     }
 
+    /* =========================================
+       GENERAL SECTIONS
+    ========================================= */
+
     section {
       padding: 38px 0;
     }
@@ -468,8 +482,8 @@
       background:
         linear-gradient(
           145deg,
-          rgba(9, 26, 16, 0.94),
-          rgba(4, 14, 8, 0.96)
+          var(--card-light),
+          var(--card-dark)
         );
       box-shadow:
         0 0 20px rgba(0, 255, 136, 0.035);
@@ -483,6 +497,10 @@
     .card p {
       color: #c5e8ce;
     }
+
+    /* =========================================
+       SKILLS
+    ========================================= */
 
     .tag-list {
       display: flex;
@@ -508,9 +526,14 @@
       transform: translateY(-2px);
     }
 
+    /* =========================================
+       CERTIFICATIONS
+    ========================================= */
+
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
       gap: 20px;
     }
 
@@ -640,41 +663,19 @@
         0 0 16px rgba(0, 255, 136, 0.35);
     }
 
-    /*
-     * PROFESSIONAL CAREER TIMELINE
-     */
+    /* =========================================
+       COMPANY-BASED CAREER CARDS
+    ========================================= */
 
     .career-list {
-      position: relative;
       display: grid;
-      gap: 40px;
-      padding-left: 65px;
-    }
-
-    .career-list::before {
-      position: absolute;
-      top: 42px;
-      bottom: 42px;
-      left: 20px;
-      width: 3px;
-      content: "";
-      border-radius: 10px;
-      background:
-        linear-gradient(
-          to bottom,
-          var(--green),
-          rgba(0, 255, 136, 0.45),
-          var(--green)
-        );
-      box-shadow:
-        0 0 8px rgba(0, 255, 136, 0.85),
-        0 0 20px rgba(0, 255, 136, 0.35);
+      gap: 64px;
     }
 
     .career-card {
       position: relative;
       overflow: visible;
-      padding: 28px 28px 30px;
+      padding: 30px;
       border-radius: 18px;
       transition:
         transform 0.3s ease,
@@ -682,120 +683,29 @@
         box-shadow 0.3s ease;
     }
 
-    .career-card::before {
-      position: absolute;
-      top: 42px;
-      left: -56px;
-      z-index: 5;
-      width: 19px;
-      height: 19px;
-      content: "";
-      border: 4px solid #06130b;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow:
-        0 0 0 2px rgba(0, 255, 136, 0.55),
-        0 0 12px var(--green),
-        0 0 24px rgba(0, 255, 136, 0.45);
-    }
-
-    .career-card::after {
-      position: absolute;
-      top: 51px;
-      left: -43px;
-      width: 43px;
-      height: 2px;
-      content: "";
-      background:
-        linear-gradient(
-          90deg,
-          var(--green),
-          rgba(0, 255, 136, 0.25)
-        );
-      box-shadow:
-        0 0 8px rgba(0, 255, 136, 0.6);
-    }
-
     .career-card:hover {
-      border-color: rgba(0, 255, 136, 0.65);
+      border-color: rgba(0, 255, 136, 0.7);
       box-shadow:
-        0 0 22px rgba(0, 255, 136, 0.12),
+        0 0 22px rgba(0, 255, 136, 0.13),
         0 0 45px rgba(0, 255, 136, 0.05);
-      transform: translateX(5px);
+      transform: translateY(-4px);
     }
 
-    /*
-     * CONNECTOR FROM BOTTOM OF CARD
-     * TO TOP OF NEXT CARD
-     */
-
-    .career-card-connector {
-      position: absolute;
-      bottom: -40px;
-      left: 50%;
-      z-index: 10;
-      width: 3px;
-      height: 40px;
-      background:
-        linear-gradient(
-          to bottom,
-          var(--green),
-          rgba(0, 255, 136, 0.55),
-          var(--green)
-        );
-      box-shadow:
-        0 0 8px rgba(0, 255, 136, 0.9),
-        0 0 18px rgba(0, 255, 136, 0.45);
-      transform: translateX(-50%);
-    }
-
-    .career-card-connector::before {
-      position: absolute;
-      top: -6px;
-      left: 50%;
-      width: 10px;
-      height: 10px;
-      content: "";
-      border: 2px solid #06130b;
-      background: var(--green);
-      box-shadow:
-        0 0 8px var(--green),
-        0 0 16px rgba(0, 255, 136, 0.55);
-      transform:
-        translateX(-50%)
-        rotate(45deg);
-    }
-
-    .career-card-connector::after {
-      position: absolute;
-      bottom: -6px;
-      left: 50%;
-      width: 10px;
-      height: 10px;
-      content: "";
-      border: 2px solid #06130b;
-      background: var(--green);
-      box-shadow:
-        0 0 8px var(--green),
-        0 0 16px rgba(0, 255, 136, 0.55);
-      transform:
-        translateX(-50%)
-        rotate(45deg);
-    }
-
-    .career-header {
-      position: relative;
+    .company-card-header {
       display: flex;
       align-items: flex-start;
       gap: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 26px;
+      padding-bottom: 22px;
+      border-bottom:
+        1px solid rgba(0, 255, 136, 0.12);
     }
 
     .company-logo-wrapper {
       display: flex;
-      width: 78px;
-      min-width: 78px;
-      height: 78px;
+      width: 82px;
+      min-width: 82px;
+      height: 82px;
       align-items: center;
       justify-content: center;
       overflow: hidden;
@@ -813,27 +723,47 @@
       object-fit: contain;
     }
 
-    .career-heading h3 {
-      margin-bottom: 2px;
+    .company-card-title {
+      margin-bottom: 4px;
       color: var(--white);
-      font-size: 1.3rem;
+      font-size: 1.45rem;
     }
 
-    .company-name {
+    .company-card-location {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .role-block {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .role-block::before {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      content: "";
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow:
+        0 0 8px var(--green),
+        0 0 15px rgba(0, 255, 136, 0.55);
+    }
+
+    .role-title {
+      margin-bottom: 3px;
       color: var(--green-light);
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 800;
     }
 
-    .career-date {
-      margin-top: 3px;
+    .role-date {
+      margin-bottom: 14px;
       color: var(--green);
       font-family: Consolas, "Courier New", monospace;
-      font-size: 0.88rem;
-    }
-
-    .career-location {
-      margin-top: 2px;
-      color: var(--muted);
       font-size: 0.88rem;
     }
 
@@ -851,8 +781,107 @@
       color: #ccecd5;
     }
 
+    .role-divider {
+      position: relative;
+      height: 1px;
+      margin: 30px 0;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 255, 136, 0.55),
+          transparent
+        );
+      box-shadow:
+        0 0 8px rgba(0, 255, 136, 0.18);
+    }
+
+    .role-divider::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 9px;
+      height: 9px;
+      content: "";
+      border: 2px solid #06130b;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow:
+        0 0 8px var(--green);
+      transform: translate(-50%, -50%);
+    }
+
+    /*
+     * Connector appears only between companies.
+     */
+
+    .career-card-connector {
+      position: absolute;
+      bottom: -64px;
+      left: 50%;
+      z-index: 10;
+      width: 3px;
+      height: 64px;
+      background:
+        linear-gradient(
+          to bottom,
+          var(--green),
+          rgba(0, 255, 136, 0.45),
+          var(--green)
+        );
+      box-shadow:
+        0 0 8px rgba(0, 255, 136, 0.9),
+        0 0 18px rgba(0, 255, 136, 0.45);
+      transform: translateX(-50%);
+    }
+
+    /*
+     * Glowing dot in the centre.
+     */
+
+    .career-card-connector::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      content: "";
+      border: 3px solid #06130b;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow:
+        0 0 8px var(--green),
+        0 0 18px rgba(0, 255, 136, 0.75),
+        0 0 28px rgba(0, 255, 136, 0.35);
+      transform: translate(-50%, -50%);
+    }
+
+    /*
+     * Small line showing connector entering next card.
+     */
+
+    .career-card-connector::after {
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 42px;
+      height: 3px;
+      content: "";
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--green),
+          transparent
+        );
+      box-shadow:
+        0 0 8px rgba(0, 255, 136, 0.7);
+      transform: translateX(-50%);
+    }
+
     .language-card {
-      margin-top: 25px;
+      margin-top: 28px;
     }
 
     .language-card h3 {
@@ -876,6 +905,10 @@
     .language-row strong {
       color: var(--white);
     }
+
+    /* =========================================
+       PROJECT REFERENCES
+    ========================================= */
 
     .project-grid {
       display: grid;
@@ -926,6 +959,10 @@
       background: rgba(0, 255, 136, 0.035);
       font-size: 0.88rem;
     }
+
+    /* =========================================
+       CVE RESEARCH
+    ========================================= */
 
     .cve-coming-soon {
       position: relative;
@@ -1073,6 +1110,10 @@
       }
     }
 
+    /* =========================================
+       EDUCATION & FOOTER
+    ========================================= */
+
     .education-title {
       margin-bottom: 6px;
       color: var(--white);
@@ -1099,6 +1140,10 @@
       font-family: Consolas, "Courier New", monospace;
     }
 
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
     @media (max-width: 1000px) {
       .cert-grid {
         grid-template-columns:
@@ -1115,7 +1160,7 @@
 
       .nav-links {
         width: 100%;
-        padding-bottom: 3px;
+        padding-bottom: 4px;
         overflow-x: auto;
       }
 
@@ -1160,10 +1205,6 @@
         letter-spacing: -1px;
       }
 
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
-
       .button-group {
         flex-direction: column;
       }
@@ -1172,58 +1213,40 @@
         width: 100%;
       }
 
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
       .cert-card {
         min-height: auto;
       }
 
       .career-list {
-        gap: 34px;
-        padding-left: 32px;
-      }
-
-      .career-list::before {
-        top: 31px;
-        bottom: 31px;
-        left: 8px;
-        width: 2px;
+        gap: 52px;
       }
 
       .career-card {
         padding: 23px 20px;
       }
 
-      .career-card::before {
-        top: 34px;
-        left: -32px;
-        width: 16px;
-        height: 16px;
-        border-width: 3px;
-      }
-
-      .career-card::after {
-        top: 41px;
-        left: -22px;
-        width: 22px;
-      }
-
-      .career-card-connector {
-        bottom: -34px;
-        height: 34px;
-      }
-
-      .career-card:hover {
-        transform: translateX(3px);
-      }
-
-      .career-header {
+      .company-card-header {
         flex-direction: column;
         gap: 14px;
       }
 
       .company-logo-wrapper {
-        width: 68px;
-        min-width: 68px;
-        height: 68px;
+        width: 70px;
+        min-width: 70px;
+        height: 70px;
+      }
+
+      .career-card-connector {
+        bottom: -52px;
+        height: 52px;
+      }
+
+      .role-block {
+        padding-left: 19px;
       }
     }
 
@@ -1329,6 +1352,8 @@
 
   <main>
 
+    <!-- ABOUT -->
+
     <section id="about">
       <div class="container">
 
@@ -1342,13 +1367,15 @@
             testing and security assessments. My experience covers banking
             systems, stock market trading platforms, retail applications,
             automotive systems and telecommunication environments.
-            I have performed security assessments for organizations across
+            I have performed security assessments for organisations across
             Malaysia, Indonesia, Singapore, Thailand, Vietnam and Europe.
           </p>
         </div>
 
       </div>
     </section>
+
+    <!-- SKILLS -->
 
     <section id="skills">
       <div class="container">
@@ -1414,6 +1441,8 @@
       </div>
     </section>
 
+    <!-- CERTIFICATIONS -->
+
     <section id="certifications">
       <div class="container">
 
@@ -1427,6 +1456,8 @@
 
         <div class="cert-grid">
 
+          <!-- OSCP PLUS -->
+
           <article class="cert-card">
 
             <span class="cert-status">
@@ -1438,6 +1469,7 @@
               href="https://credentials.offsec.com/334a0076-1889-4333-9cbe-7ecbdfcf3cf0#acc.uYpkAwVv"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Verify OSCP Plus credential"
             >
               <img
                 class="cert-badge-image"
@@ -1466,6 +1498,8 @@
 
           </article>
 
+          <!-- OSCP -->
+
           <article class="cert-card">
 
             <span class="cert-status">
@@ -1477,6 +1511,7 @@
               href="https://credentials.offsec.com/a98d468c-b4fa-40e8-b347-240712546176#acc.pIyHOQwi"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Verify OSCP credential"
             >
               <img
                 class="cert-badge-image"
@@ -1505,6 +1540,8 @@
 
           </article>
 
+          <!-- CRT -->
+
           <article class="cert-card">
 
             <span class="cert-status">
@@ -1516,6 +1553,7 @@
               href="https://www.credly.com/badges/f2959361-0b32-4f2f-9578-ae789dd3bd24/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Verify CREST CRT credential"
             >
               <img
                 class="cert-badge-image"
@@ -1544,6 +1582,8 @@
 
           </article>
 
+          <!-- CPSA -->
+
           <article class="cert-card">
 
             <span class="cert-status">
@@ -1555,6 +1595,7 @@
               href="https://www.credly.com/badges/96b82055-c6d0-4cda-84aa-d49244acd2c4/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Verify CREST CPSA credential"
             >
               <img
                 class="cert-badge-image"
@@ -1583,6 +1624,8 @@
 
           </article>
 
+          <!-- AWS -->
+
           <article class="cert-card">
 
             <span class="cert-status">
@@ -1594,6 +1637,7 @@
               href="https://www.credly.com/badges/c609bd13-43f6-48cf-9e12-03767a60b9f4"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Verify AWS Cloud Practitioner credential"
             >
               <img
                 class="cert-badge-image"
@@ -1626,6 +1670,8 @@
       </div>
     </section>
 
+    <!-- PROFESSIONAL CAREER -->
+
     <section id="experience">
       <div class="container">
 
@@ -1640,9 +1686,11 @@
 
         <div class="career-list">
 
+          <!-- SEC CONSULT COMPANY CARD -->
+
           <article class="career-card">
 
-            <div class="career-header">
+            <div class="company-card-header">
 
               <div class="company-logo-wrapper">
                 <img
@@ -1650,78 +1698,85 @@
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvPlxR5G1eN2TUKgW8nBofEDu3oq4jvLZwRF1gY4AXO5r0ysUJYzkaJJ2p&amp;s=10"
                   alt="SEC Consult Malaysia logo"
                   loading="lazy"
+                  referrerpolicy="no-referrer"
                 >
               </div>
 
-              <div class="career-heading">
-
-                <h3>
-                  Security Consultant
+              <div>
+                <h3 class="company-card-title">
+                  SEC Consult Malaysia
                 </h3>
 
-                <p class="company-name">
-                  SEC Consult Malaysia
-                </p>
-
-                <p class="career-date">
-                  September 2024 – Present
-                </p>
-
-                <p class="career-location">
+                <p class="company-card-location">
                   Cyberjaya, Selangor, Malaysia · Hybrid
                 </p>
-
               </div>
 
             </div>
 
-            <p class="career-summary">
-              Conducting security assessments to help organizations
-              identify vulnerabilities, validate security risks and
-              strengthen their overall security posture.
-            </p>
+            <div class="role-block">
 
-            <ul class="career-points">
+              <h4 class="role-title">
+                Security Consultant
+              </h4>
 
-              <li>
-                Perform penetration testing for web applications, APIs,
-                mobile applications, internal networks and external networks.
-              </li>
+              <p class="role-date">
+                September 2024 – Present
+              </p>
 
-              <li>
-                Conduct security configuration reviews for firewalls,
-                network devices and enterprise technologies.
-              </li>
+              <p class="career-summary">
+                Conducting security assessments to identify vulnerabilities,
+                validate security risks and strengthen clients' overall
+                security posture.
+              </p>
 
-              <li>
-                Review application architecture, source code and deployment
-                configurations for security weaknesses.
-              </li>
+              <ul class="career-points">
 
-              <li>
-                Validate real-world attack scenarios and potential
-                business impact.
-              </li>
+                <li>
+                  Perform penetration testing for web applications, APIs,
+                  mobile applications, internal networks and external networks.
+                </li>
 
-              <li>
-                Prepare technical reports, remediation recommendations
-                and management-level risk summaries.
-              </li>
+                <li>
+                  Conduct security configuration reviews for firewalls,
+                  network devices and enterprise technologies.
+                </li>
 
-              <li>
-                Support remediation verification, vulnerability retesting
-                and collaboration with clients and global teams.
-              </li>
+                <li>
+                  Review application architecture, source code and deployment
+                  configurations for security weaknesses.
+                </li>
 
-            </ul>
+                <li>
+                  Validate attack scenarios and identify potential
+                  technical and business impact.
+                </li>
+
+                <li>
+                  Prepare technical reports, management summaries and
+                  remediation recommendations.
+                </li>
+
+                <li>
+                  Support remediation verification, vulnerability retesting
+                  and collaboration with clients and global teams.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <!-- CONNECTOR TO ASK PENTEST -->
 
             <div class="career-card-connector"></div>
 
           </article>
 
+          <!-- ASK PENTEST COMPANY CARD -->
+
           <article class="career-card">
 
-            <div class="career-header">
+            <div class="company-card-header">
 
               <div class="company-logo-wrapper">
                 <img
@@ -1729,109 +1784,91 @@
                   src="https://media.licdn.com/dms/image/v2/D4E0BAQGHCF_WIi5kRA/company-logo_200_200/company-logo_200_200/0/1731028073743?e=1785369600&amp;v=beta&amp;t=tR9uc64Sblygi9_Ijl_dkl0oNc1_UiDUeowvUcZH4AE"
                   alt="ASK Pentest Sdn Bhd logo"
                   loading="lazy"
+                  referrerpolicy="no-referrer"
                 >
               </div>
 
-              <div class="career-heading">
-
-                <h3>
-                  Security Consultant
+              <div>
+                <h3 class="company-card-title">
+                  ASK Pentest Sdn Bhd
                 </h3>
 
-                <p class="company-name">
-                  ASK Pentest Sdn Bhd
-                </p>
-
-                <p class="career-date">
-                  March 2022 – September 2024
-                </p>
-
-                <p class="career-location">
+                <p class="company-card-location">
                   Kuala Lumpur, Malaysia
                 </p>
-
               </div>
 
             </div>
 
-            <p class="career-summary">
-              Delivered penetration testing and security assessment
-              services across financial services, government,
-              telecommunications, healthcare and enterprise environments.
-            </p>
+            <!-- ASK SECURITY CONSULTANT ROLE -->
 
-            <ul class="career-points">
+            <div class="role-block">
 
-              <li>
-                Performed web, API, mobile, thick client, wireless and
-                internal or external network penetration testing.
-              </li>
+              <h4 class="role-title">
+                Security Consultant
+              </h4>
 
-              <li>
-                Conducted vulnerability assessments using automated and
-                manual testing methodologies.
-              </li>
+              <p class="role-date">
+                March 2022 – September 2024
+              </p>
 
-              <li>
-                Reviewed source code, application architecture and
-                deployment configurations.
-              </li>
+              <p class="career-summary">
+                Delivered penetration testing and security assessment
+                services across financial services, government,
+                telecommunications, healthcare and enterprise environments.
+              </p>
 
-              <li>
-                Performed security configuration reviews for servers,
-                network devices and enterprise systems.
-              </li>
+              <ul class="career-points">
 
-              <li>
-                Prepared technical reports, executive summaries and
-                remediation guidance for stakeholders.
-              </li>
+                <li>
+                  Performed web, API, mobile, thick client, wireless and
+                  internal or external network penetration testing.
+                </li>
 
-            </ul>
+                <li>
+                  Conducted vulnerability assessments using automated
+                  and manual testing techniques.
+                </li>
 
-            <div class="career-card-connector"></div>
+                <li>
+                  Reviewed source code, application architecture and
+                  deployment configurations.
+                </li>
 
-          </article>
+                <li>
+                  Performed security configuration reviews for servers,
+                  network devices and enterprise systems.
+                </li>
 
-          <article class="career-card">
+                <li>
+                  Prepared technical reports, executive summaries and
+                  remediation guidance for stakeholders.
+                </li>
 
-            <div class="career-header">
-
-              <div class="company-logo-wrapper">
-                <img
-                  class="company-logo"
-                  src="https://media.licdn.com/dms/image/v2/D4E0BAQGHCF_WIi5kRA/company-logo_200_200/company-logo_200_200/0/1731028073743?e=1785369600&amp;v=beta&amp;t=tR9uc64Sblygi9_Ijl_dkl0oNc1_UiDUeowvUcZH4AE"
-                  alt="ASK Pentest Sdn Bhd logo"
-                  loading="lazy"
-                >
-              </div>
-
-              <div class="career-heading">
-
-                <h3>
-                  Security Consultant Intern
-                </h3>
-
-                <p class="company-name">
-                  ASK Pentest Sdn Bhd
-                </p>
-
-                <p class="career-date">
-                  October 2021 – March 2022
-                </p>
-
-                <p class="career-location">
-                  Kuala Lumpur, Malaysia
-                </p>
-
-              </div>
+              </ul>
 
             </div>
 
-            <p class="career-summary">
-              Supported web and mobile application penetration testing,
-              vulnerability assessments and security reporting activities.
-            </p>
+            <div class="role-divider"></div>
+
+            <!-- ASK INTERNSHIP ROLE -->
+
+            <div class="role-block">
+
+              <h4 class="role-title">
+                Security Consultant Intern
+              </h4>
+
+              <p class="role-date">
+                October 2021 – March 2022
+              </p>
+
+              <p class="career-summary">
+                Supported web and mobile application penetration testing,
+                vulnerability assessments and security reporting activities.
+              </p>
+
+            </div>
 
           </article>
 
@@ -1857,6 +1894,8 @@
 
       </div>
     </section>
+
+    <!-- PROJECT REFERENCES -->
 
     <section id="references">
       <div class="container">
@@ -1888,16 +1927,30 @@
                 Internal and External Network Vulnerability Assessment
                 and Penetration Testing
               </li>
-              <li>PCI ASV External</li>
-              <li>API Penetration Testing</li>
+
+              <li>
+                PCI ASV External
+              </li>
+
+              <li>
+                API Penetration Testing
+              </li>
+
               <li>
                 Web Application Security Assessment and Penetration Testing
               </li>
+
               <li>
                 Mobile Application Security Assessment and Penetration Testing
               </li>
-              <li>Source Code Security Review</li>
-              <li>Network Configuration Security Review</li>
+
+              <li>
+                Source Code Security Review
+              </li>
+
+              <li>
+                Network Configuration Security Review
+              </li>
             </ul>
 
           </article>
@@ -1916,10 +1969,14 @@
               <li>
                 Web Application Security Assessment and Penetration Testing
               </li>
+
               <li>
                 Mobile Application Security Assessment and Penetration Testing
               </li>
-              <li>Source Code Security Review</li>
+
+              <li>
+                Source Code Security Review
+              </li>
             </ul>
 
           </article>
@@ -1936,11 +1993,17 @@
             </h3>
 
             <ul>
-              <li>Thick Client Application Penetration Testing</li>
+              <li>
+                Thick Client Application Penetration Testing
+              </li>
+
               <li>
                 Web Application Security Assessment and Penetration Testing
               </li>
-              <li>Social Engineering Assessment</li>
+
+              <li>
+                Social Engineering Assessment
+              </li>
             </ul>
 
           </article>
@@ -1978,11 +2041,19 @@
               <li>
                 Web Application Security Assessment and Penetration Testing
               </li>
+
               <li>
                 Mobile Application Security Assessment and Penetration Testing
               </li>
-              <li>Source Code Security Review</li>
-              <li>Wireless Security Assessment</li>
+
+              <li>
+                Source Code Security Review
+              </li>
+
+              <li>
+                Wireless Security Assessment
+              </li>
+
               <li>
                 Internal and External Network Vulnerability Assessment
                 and Penetration Testing
@@ -2002,11 +2073,17 @@
             </h3>
 
             <ul>
-              <li>API Penetration Testing</li>
+              <li>
+                API Penetration Testing
+              </li>
+
               <li>
                 Web Application Security Assessment and Penetration Testing
               </li>
-              <li>Chatbot AI Penetration Testing</li>
+
+              <li>
+                Chatbot AI Penetration Testing
+              </li>
             </ul>
 
           </article>
@@ -2022,7 +2099,10 @@
             </h3>
 
             <ul>
-              <li>API Penetration Testing</li>
+              <li>
+                API Penetration Testing
+              </li>
+
               <li>
                 Web Application Security Assessment and Penetration Testing
               </li>
@@ -2045,10 +2125,14 @@
               <li>
                 Mobile Application Security Assessment and Penetration Testing
               </li>
+
               <li>
                 Web Application Security Assessment and Penetration Testing
               </li>
-              <li>AWS Cloud Security Audit Assessment</li>
+
+              <li>
+                AWS Cloud Security Audit Assessment
+              </li>
             </ul>
 
           </article>
@@ -2057,11 +2141,13 @@
 
         <div class="confidentiality-note">
           [ CONFIDENTIALITY NOTICE ] Client names and sensitive project
-          information have been intentionally generalized.
+          information have been intentionally generalised.
         </div>
 
       </div>
     </section>
+
+    <!-- CVE -->
 
     <section id="cve">
       <div class="container">
@@ -2112,6 +2198,8 @@
       </div>
     </section>
 
+    <!-- EDUCATION -->
+
     <section id="education">
       <div class="container">
 
@@ -2152,6 +2240,10 @@
   </footer>
 
   <script>
+    /*
+     * Typing animation
+     */
+
     const typingElement =
       document.getElementById("typing-text");
 
@@ -2180,6 +2272,10 @@
         450
       );
     }
+
+    /*
+     * Matrix background animation
+     */
 
     const canvas =
       document.getElementById("matrix-canvas");
