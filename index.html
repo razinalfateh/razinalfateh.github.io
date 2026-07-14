@@ -20,11 +20,9 @@
   <style>
     :root {
       --background: #050b08;
-      --background-light: #09130d;
-      --card: rgba(8, 24, 15, 0.9);
+      --card: rgba(8, 24, 15, 0.92);
       --green: #00ff88;
       --green-light: #a5ffc5;
-      --green-dark: #00bd65;
       --white: #f5fff8;
       --text: #d4f5dd;
       --muted: #92b79d;
@@ -40,7 +38,7 @@
     }
 
     html {
-      scroll-padding-top: 90px;
+      scroll-padding-top: 95px;
     }
 
     body {
@@ -74,6 +72,19 @@
 
     img {
       max-width: 100%;
+    }
+
+    ul {
+      padding-left: 21px;
+    }
+
+    li {
+      margin-bottom: 9px;
+      color: #ccecd5;
+    }
+
+    li::marker {
+      color: var(--green);
     }
 
     #matrix-canvas {
@@ -113,12 +124,13 @@
       height: 2px;
       opacity: 0.3;
       pointer-events: none;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--green),
-        transparent
-      );
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--green),
+          transparent
+        );
       box-shadow: 0 0 18px var(--green);
       animation: scanScreen 8s linear infinite;
     }
@@ -161,19 +173,20 @@
       font-size: 1.15rem;
       font-weight: 800;
       letter-spacing: 0.6px;
-      text-shadow: 0 0 12px rgba(0, 255, 136, 0.45);
+      text-shadow:
+        0 0 12px rgba(0, 255, 136, 0.45);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 19px;
     }
 
     .nav-links a {
       position: relative;
       color: #c2e9cd;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       transition: color 0.25s ease;
     }
 
@@ -384,12 +397,14 @@
       color: #031008;
       border-color: var(--green);
       background: var(--green);
-      box-shadow: 0 0 15px rgba(0, 255, 136, 0.22);
+      box-shadow:
+        0 0 15px rgba(0, 255, 136, 0.22);
     }
 
     .btn-primary:hover {
       background: #35ffa0;
-      box-shadow: 0 0 24px rgba(0, 255, 136, 0.4);
+      box-shadow:
+        0 0 24px rgba(0, 255, 136, 0.4);
     }
 
     .btn-secondary {
@@ -399,7 +414,8 @@
 
     .btn-secondary:hover {
       background: rgba(0, 255, 136, 0.12);
-      box-shadow: 0 0 16px rgba(0, 255, 136, 0.15);
+      box-shadow:
+        0 0 16px rgba(0, 255, 136, 0.15);
     }
 
     .linkedin-btn {
@@ -409,7 +425,8 @@
 
     .linkedin-btn:hover {
       background: rgba(67, 191, 255, 0.12);
-      box-shadow: 0 0 16px rgba(67, 191, 255, 0.17);
+      box-shadow:
+        0 0 16px rgba(67, 191, 255, 0.17);
     }
 
     section {
@@ -433,7 +450,8 @@
       content: "";
       border-radius: 10px;
       background: var(--green);
-      box-shadow: 0 0 14px rgba(0, 255, 136, 0.65);
+      box-shadow:
+        0 0 14px rgba(0, 255, 136, 0.65);
     }
 
     .section-subtitle {
@@ -444,7 +462,8 @@
 
     .card,
     .project-card,
-    .cert-card {
+    .cert-card,
+    .career-card {
       border: 1px solid var(--border);
       background:
         linear-gradient(
@@ -452,7 +471,8 @@
           rgba(9, 26, 16, 0.94),
           rgba(4, 14, 8, 0.95)
         );
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.035);
+      box-shadow:
+        0 0 20px rgba(0, 255, 136, 0.035);
     }
 
     .card {
@@ -558,7 +578,6 @@
       align-items: center;
       justify-content: center;
       margin: 14px auto 22px;
-      border-radius: 50%;
       transition:
         transform 0.3s ease,
         filter 0.3s ease;
@@ -567,17 +586,22 @@
     .badge-image-link:hover {
       transform: scale(1.07);
       filter:
-        drop-shadow(0 0 10px rgba(0, 255, 136, 0.5))
-        drop-shadow(0 0 22px rgba(0, 255, 136, 0.25));
+        drop-shadow(
+          0 0 10px rgba(0, 255, 136, 0.5)
+        )
+        drop-shadow(
+          0 0 22px rgba(0, 255, 136, 0.25)
+        );
     }
 
     .cert-badge-image {
       width: 165px;
       height: 165px;
       object-fit: contain;
-      filter: drop-shadow(
-        0 0 12px rgba(0, 255, 136, 0.24)
-      );
+      filter:
+        drop-shadow(
+          0 0 12px rgba(0, 255, 136, 0.24)
+        );
     }
 
     .cert-card h3 {
@@ -618,64 +642,148 @@
     .verify-btn:hover {
       color: #041009;
       background: var(--green);
-      box-shadow: 0 0 16px rgba(0, 255, 136, 0.35);
+      box-shadow:
+        0 0 16px rgba(0, 255, 136, 0.35);
     }
 
-    .timeline-item {
+    .career-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .career-card {
       position: relative;
-      margin-bottom: 22px;
-      padding: 2px 0 2px 20px;
-      border-left: 2px solid rgba(0, 255, 136, 0.28);
+      overflow: hidden;
+      padding: 28px;
+      border-radius: 18px;
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-item::before {
+    .career-card::before {
       position: absolute;
-      top: 8px;
-      left: -6px;
-      width: 10px;
-      height: 10px;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
       content: "";
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 10px var(--green);
+      background:
+        linear-gradient(
+          to bottom,
+          var(--green),
+          transparent
+        );
+      box-shadow:
+        0 0 12px rgba(0, 255, 136, 0.5);
     }
 
-    .timeline-item h3 {
+    .career-card:hover {
+      border-color: rgba(0, 255, 136, 0.55);
+      box-shadow:
+        0 0 20px rgba(0, 255, 136, 0.1),
+        0 0 40px rgba(0, 255, 136, 0.04);
+      transform: translateY(-4px);
+    }
+
+    .career-header {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .company-logo-wrapper {
+      display: flex;
+      width: 78px;
+      min-width: 78px;
+      height: 78px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 7px;
+      border: 1px solid rgba(0, 255, 136, 0.22);
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow:
+        0 0 15px rgba(0, 255, 136, 0.08);
+    }
+
+    .company-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .career-heading h3 {
+      margin-bottom: 2px;
       color: var(--white);
-      font-size: 1.1rem;
+      font-size: 1.3rem;
     }
 
-    .timeline-item .date {
-      margin: 3px 0 8px;
+    .company-name {
       color: var(--green-light);
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 0.86rem;
+      font-weight: 700;
     }
 
-    .timeline-item p {
-      color: #b9dfc3;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-      color: #ccecd5;
-    }
-
-    li::marker {
+    .career-date {
+      margin-top: 3px;
       color: var(--green);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.88rem;
+    }
+
+    .career-location {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .career-summary {
+      margin-bottom: 18px;
+      color: #c5e8ce;
+    }
+
+    .career-points {
+      padding-left: 21px;
+    }
+
+    .career-points li {
+      margin-bottom: 10px;
+    }
+
+    .language-card {
+      margin-top: 22px;
+    }
+
+    .language-card h3 {
+      margin-bottom: 14px;
+      color: var(--white);
+    }
+
+    .language-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 12px 0;
+      border-bottom:
+        1px solid rgba(0, 255, 136, 0.1);
+    }
+
+    .language-row:last-child {
+      border-bottom: 0;
+    }
+
+    .language-row strong {
+      color: var(--white);
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
       gap: 20px;
     }
 
@@ -691,7 +799,8 @@
 
     .project-card:hover {
       border-color: rgba(0, 255, 136, 0.5);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.08);
+      box-shadow:
+        0 0 20px rgba(0, 255, 136, 0.08);
       transform: translateY(-4px);
     }
 
@@ -714,10 +823,157 @@
       margin-top: 20px;
       padding: 14px 16px;
       color: #a9cdb2;
-      border: 1px dashed rgba(0, 255, 136, 0.22);
+      border:
+        1px dashed rgba(0, 255, 136, 0.22);
       border-radius: 10px;
       background: rgba(0, 255, 136, 0.035);
       font-size: 0.88rem;
+    }
+
+    .cve-coming-soon {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      overflow: hidden;
+      padding: 35px;
+      border:
+        1px dashed rgba(0, 255, 136, 0.35);
+      border-radius: 18px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(9, 26, 16, 0.95),
+          rgba(4, 14, 8, 0.97)
+        );
+      box-shadow:
+        0 0 25px rgba(0, 255, 136, 0.06);
+    }
+
+    .cve-coming-soon::before {
+      position: absolute;
+      top: -100px;
+      right: -70px;
+      width: 260px;
+      height: 260px;
+      content: "";
+      border-radius: 50%;
+      background: rgba(0, 255, 136, 0.08);
+      filter: blur(25px);
+    }
+
+    .cve-icon {
+      position: relative;
+      display: flex;
+      width: 125px;
+      min-width: 125px;
+      height: 125px;
+      align-items: center;
+      justify-content: center;
+      color: #031008;
+      background:
+        linear-gradient(
+          145deg,
+          #b5ffd0,
+          #00ce6c
+        );
+      clip-path:
+        polygon(
+          25% 5%,
+          75% 5%,
+          100% 50%,
+          75% 95%,
+          25% 95%,
+          0 50%
+        );
+      filter:
+        drop-shadow(
+          0 0 15px rgba(0, 255, 136, 0.4)
+        );
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .cve-content {
+      position: relative;
+      flex: 1;
+    }
+
+    .cve-status {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      color: var(--green-light);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      border-radius: 999px;
+      background: rgba(0, 255, 136, 0.07);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+    }
+
+    .cve-content h3 {
+      margin-bottom: 10px;
+      color: var(--white);
+      font-size: 1.35rem;
+    }
+
+    .cve-content p {
+      max-width: 760px;
+      color: #c5e8ce;
+    }
+
+    .cve-terminal {
+      margin-top: 20px;
+      padding: 13px 15px;
+      color: #bceccc;
+      border: 1px solid rgba(0, 255, 136, 0.16);
+      border-radius: 9px;
+      background: rgba(1, 8, 4, 0.8);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.86rem;
+    }
+
+    .cve-terminal span {
+      margin-right: 7px;
+      color: var(--green);
+    }
+
+    .research-progress {
+      width: 100%;
+      height: 7px;
+      overflow: hidden;
+      margin-top: 15px;
+      border-radius: 999px;
+      background: rgba(0, 255, 136, 0.08);
+    }
+
+    .research-progress-bar {
+      width: 40%;
+      height: 100%;
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--green),
+          transparent
+        );
+      box-shadow:
+        0 0 12px rgba(0, 255, 136, 0.5);
+      animation: cveResearch 2.5s linear infinite;
+    }
+
+    @keyframes cveResearch {
+      from {
+        transform: translateX(-120%);
+      }
+
+      to {
+        transform: translateX(350%);
+      }
     }
 
     .education-title {
@@ -730,27 +986,12 @@
       color: var(--green-light);
     }
 
-    .language-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-    }
-
-    .language-row:last-child {
-      border-bottom: 0;
-    }
-
-    .language-row strong {
-      color: var(--white);
-    }
-
     footer {
       margin-top: 40px;
       padding: 30px 0 38px;
       color: #799987;
-      border-top: 1px solid rgba(0, 255, 136, 0.14);
+      border-top:
+        1px solid rgba(0, 255, 136, 0.14);
       text-align: center;
       font-size: 0.87rem;
     }
@@ -763,7 +1004,8 @@
 
     @media (max-width: 1000px) {
       .cert-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -798,6 +1040,21 @@
       }
     }
 
+    @media (max-width: 700px) {
+      .cve-coming-soon {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 22px;
+      }
+
+      .cve-icon {
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+        font-size: 1.3rem;
+      }
+    }
+
     @media (max-width: 620px) {
       .container {
         width: min(93%, 1180px);
@@ -821,6 +1078,21 @@
 
       .cert-card {
         min-height: auto;
+      }
+
+      .career-card {
+        padding: 23px 20px;
+      }
+
+      .career-header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .company-logo-wrapper {
+        width: 68px;
+        min-width: 68px;
+        height: 68px;
       }
     }
 
@@ -855,6 +1127,7 @@
         <a href="#certifications">Certifications</a>
         <a href="#experience">Experience</a>
         <a href="#references">References</a>
+        <a href="#cve">CVE Research</a>
         <a href="#education">Education</a>
       </div>
 
@@ -1234,68 +1507,220 @@
           Professional Career
         </h2>
 
-        <div class="grid-2">
+        <p class="section-subtitle">
+          Professional experience in penetration testing, security assessment
+          and cybersecurity consulting.
+        </p>
 
-          <div class="card">
+        <div class="career-list">
 
-            <div class="timeline-item">
+          <article class="career-card">
 
-              <h3>
-                Security Consultant
-              </h3>
+            <div class="career-header">
 
-              <div class="date">
-                SEC Consult Malaysia | 2024 – Present
+              <div class="company-logo-wrapper">
+                <img
+                  class="company-logo"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvPlxR5G1eN2TUKgW8nBofEDu3oq4jvLZwRF1gY4AXO5r0ysUJYzkaJJ2p&amp;s=10"
+                  alt="SEC Consult Malaysia logo"
+                  loading="lazy"
+                >
               </div>
 
-              <p>
-                Performing cybersecurity assessments across banking,
-                financial services, retail, automotive and
-                telecommunication environments.
-              </p>
+              <div class="career-heading">
+
+                <h3>
+                  Security Consultant
+                </h3>
+
+                <p class="company-name">
+                  SEC Consult Malaysia
+                </p>
+
+                <p class="career-date">
+                  September 2024 – Present
+                </p>
+
+                <p class="career-location">
+                  Cyberjaya, Selangor, Malaysia · Hybrid
+                </p>
+
+              </div>
 
             </div>
 
-            <div class="timeline-item">
+            <p class="career-summary">
+              Conducting security assessments to help organizations
+              identify vulnerabilities, validate security risks and
+              strengthen their overall security posture.
+            </p>
 
-              <h3>
-                Cybersecurity Consultant
-              </h3>
+            <ul class="career-points">
 
-              <div class="date">
-                ASK Pentest | 2022 – 2024
+              <li>
+                Perform penetration testing for web applications, APIs,
+                mobile applications, internal networks and external networks.
+              </li>
+
+              <li>
+                Conduct security configuration reviews for firewalls,
+                network devices and enterprise technologies.
+              </li>
+
+              <li>
+                Review application architecture, source code and deployment
+                configurations for security weaknesses.
+              </li>
+
+              <li>
+                Validate real-world attack scenarios and potential
+                business impact.
+              </li>
+
+              <li>
+                Prepare technical reports, remediation recommendations
+                and management-level risk summaries.
+              </li>
+
+              <li>
+                Support remediation verification, vulnerability retesting
+                and collaboration with clients and global teams.
+              </li>
+
+            </ul>
+
+          </article>
+
+          <article class="career-card">
+
+            <div class="career-header">
+
+              <div class="company-logo-wrapper">
+                <img
+                  class="company-logo"
+                  src="https://media.licdn.com/dms/image/v2/D4E0BAQGHCF_WIi5kRA/company-logo_200_200/company-logo_200_200/0/1731028073743?e=1785369600&amp;v=beta&amp;t=tR9uc64Sblygi9_Ijl_dkl0oNc1_UiDUeowvUcZH4AE"
+                  alt="ASK Pentest Sdn Bhd logo"
+                  loading="lazy"
+                >
               </div>
 
-              <p>
-                Conducted application and infrastructure security
-                assessments, penetration testing and security reviews.
-              </p>
+              <div class="career-heading">
+
+                <h3>
+                  Security Consultant
+                </h3>
+
+                <p class="company-name">
+                  ASK Pentest Sdn Bhd
+                </p>
+
+                <p class="career-date">
+                  March 2022 – September 2024
+                </p>
+
+                <p class="career-location">
+                  Kuala Lumpur, Malaysia
+                </p>
+
+              </div>
 
             </div>
 
+            <p class="career-summary">
+              Delivered penetration testing and security assessment
+              services across financial services, government,
+              telecommunications, healthcare and enterprise environments.
+            </p>
+
+            <ul class="career-points">
+
+              <li>
+                Performed web, API, mobile, thick client, wireless and
+                internal or external network penetration testing.
+              </li>
+
+              <li>
+                Conducted vulnerability assessments using automated and
+                manual testing methodologies.
+              </li>
+
+              <li>
+                Reviewed source code, application architecture and
+                deployment configurations.
+              </li>
+
+              <li>
+                Performed security configuration reviews for servers,
+                network devices and enterprise systems.
+              </li>
+
+              <li>
+                Prepared technical reports, executive summaries and
+                remediation guidance for stakeholders.
+              </li>
+
+            </ul>
+
+          </article>
+
+          <article class="career-card">
+
+            <div class="career-header">
+
+              <div class="company-logo-wrapper">
+                <img
+                  class="company-logo"
+                  src="https://media.licdn.com/dms/image/v2/D4E0BAQGHCF_WIi5kRA/company-logo_200_200/company-logo_200_200/0/1731028073743?e=1785369600&amp;v=beta&amp;t=tR9uc64Sblygi9_Ijl_dkl0oNc1_UiDUeowvUcZH4AE"
+                  alt="ASK Pentest Sdn Bhd logo"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="career-heading">
+
+                <h3>
+                  Security Consultant Intern
+                </h3>
+
+                <p class="company-name">
+                  ASK Pentest Sdn Bhd
+                </p>
+
+                <p class="career-date">
+                  October 2021 – March 2022
+                </p>
+
+                <p class="career-location">
+                  Kuala Lumpur, Malaysia
+                </p>
+
+              </div>
+
+            </div>
+
+            <p class="career-summary">
+              Supported web and mobile application penetration testing,
+              vulnerability assessments and security reporting activities.
+            </p>
+
+          </article>
+
+        </div>
+
+        <div class="card language-card">
+
+          <h3>
+            Language Skills
+          </h3>
+
+          <div class="language-row">
+            <strong>Malay</strong>
+            <span>Native</span>
           </div>
 
-          <div class="card">
-
-            <h3
-              style="
-                margin-bottom: 15px;
-                color: #f5fff8;
-              "
-            >
-              Language Skills
-            </h3>
-
-            <div class="language-row">
-              <strong>Malay</strong>
-              <span>Native</span>
-            </div>
-
-            <div class="language-row">
-              <strong>English</strong>
-              <span>Fluent</span>
-            </div>
-
+          <div class="language-row">
+            <strong>English</strong>
+            <span>Fluent</span>
           </div>
 
         </div>
@@ -1381,9 +1806,7 @@
             </h3>
 
             <ul>
-              <li>
-                Thick Client Application Penetration Testing
-              </li>
+              <li>Thick Client Application Penetration Testing</li>
               <li>
                 Web Application Security Assessment and Penetration Testing
               </li>
@@ -1510,6 +1933,55 @@
       </div>
     </section>
 
+    <section id="cve">
+      <div class="container">
+
+        <h2 class="section-title">
+          CVE Research
+        </h2>
+
+        <p class="section-subtitle">
+          Security vulnerability research and responsible disclosure.
+        </p>
+
+        <div class="cve-coming-soon">
+
+          <div class="cve-icon">
+            CVE
+          </div>
+
+          <div class="cve-content">
+
+            <span class="cve-status">
+              RESEARCH IN PROGRESS
+            </span>
+
+            <h3>
+              CVE Discovery Coming Soon
+            </h3>
+
+            <p>
+              No CVE has been assigned yet. Currently researching security
+              vulnerabilities and exploring opportunities for responsible
+              disclosure.
+            </p>
+
+            <div class="cve-terminal">
+              <span>razin@research:~$</span>
+              searching_for_zero_day --status active
+            </div>
+
+            <div class="research-progress">
+              <div class="research-progress-bar"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <section id="education">
       <div class="container">
 
@@ -1550,9 +2022,6 @@
   </footer>
 
   <script>
-    /*
-     * Typing animation
-     */
     const typingElement =
       document.getElementById("typing-text");
 
@@ -1582,9 +2051,6 @@
       );
     }
 
-    /*
-     * Matrix background animation
-     */
     const canvas =
       document.getElementById("matrix-canvas");
 
@@ -1624,11 +2090,13 @@
         0
       );
 
-      columns = Math.floor(
-        window.innerWidth / fontSize
-      );
+      columns =
+        Math.floor(
+          window.innerWidth / fontSize
+        );
 
-      drops = Array(columns).fill(1);
+      drops =
+        Array(columns).fill(1);
     }
 
     function drawMatrix() {
@@ -1642,7 +2110,8 @@
         window.innerHeight
       );
 
-      context.fillStyle = "#00ff88";
+      context.fillStyle =
+        "#00ff88";
 
       context.font =
         `${fontSize}px Consolas, monospace`;
