@@ -646,113 +646,221 @@
         0 0 16px rgba(0, 255, 136, 0.35);
     }
 
-    .career-list {
-      display: grid;
-      gap: 22px;
-    }
+/* =========================================
+   CONNECTED PROFESSIONAL CAREER TIMELINE
+========================================= */
 
-    .career-card {
-      position: relative;
-      overflow: hidden;
-      padding: 28px;
-      border-radius: 18px;
-      transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-    }
+.career-list {
+  position: relative;
+  display: grid;
+  gap: 30px;
+  padding-left: 65px;
+}
 
-    .career-card::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      content: "";
-      background:
-        linear-gradient(
-          to bottom,
-          var(--green),
-          transparent
-        );
-      box-shadow:
-        0 0 12px rgba(0, 255, 136, 0.5);
-    }
+/* Continuous vertical timeline */
+.career-list::before {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 20px;
+  width: 3px;
+  content: "";
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      to bottom,
+      #00ff88,
+      rgba(0, 255, 136, 0.45),
+      #00ff88
+    );
+  box-shadow:
+    0 0 8px rgba(0, 255, 136, 0.8),
+    0 0 18px rgba(0, 255, 136, 0.35);
+}
 
-    .career-card:hover {
-      border-color: rgba(0, 255, 136, 0.55);
-      box-shadow:
-        0 0 20px rgba(0, 255, 136, 0.1),
-        0 0 40px rgba(0, 255, 136, 0.04);
-      transform: translateY(-4px);
-    }
+.career-card {
+  position: relative;
+  overflow: visible;
+  padding: 28px;
+  border: 1px solid rgba(0, 255, 136, 0.22);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 26, 16, 0.96),
+      rgba(4, 14, 8, 0.97)
+    );
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.04);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
 
-    .career-header {
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
+/* Glowing timeline node */
+.career-card::before {
+  position: absolute;
+  top: 42px;
+  left: -56px;
+  z-index: 3;
+  width: 19px;
+  height: 19px;
+  content: "";
+  border: 4px solid #06130b;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow:
+    0 0 0 2px rgba(0, 255, 136, 0.55),
+    0 0 12px #00ff88,
+    0 0 24px rgba(0, 255, 136, 0.45);
+}
 
-    .company-logo-wrapper {
-      display: flex;
-      width: 78px;
-      min-width: 78px;
-      height: 78px;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 7px;
-      border: 1px solid rgba(0, 255, 136, 0.22);
-      border-radius: 14px;
-      background: #ffffff;
-      box-shadow:
-        0 0 15px rgba(0, 255, 136, 0.08);
-    }
+/* Horizontal connector from timeline to card */
+.career-card::after {
+  position: absolute;
+  top: 51px;
+  left: -43px;
+  width: 43px;
+  height: 2px;
+  content: "";
+  background:
+    linear-gradient(
+      90deg,
+      #00ff88,
+      rgba(0, 255, 136, 0.25)
+    );
+  box-shadow:
+    0 0 8px rgba(0, 255, 136, 0.55);
+}
 
-    .company-logo {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+.career-card:hover {
+  border-color: rgba(0, 255, 136, 0.65);
+  box-shadow:
+    0 0 22px rgba(0, 255, 136, 0.12),
+    0 0 45px rgba(0, 255, 136, 0.05);
+  transform: translateX(6px);
+}
 
-    .career-heading h3 {
-      margin-bottom: 2px;
-      color: var(--white);
-      font-size: 1.3rem;
-    }
+.career-header {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
 
-    .company-name {
-      color: var(--green-light);
-      font-weight: 700;
-    }
+.company-logo-wrapper {
+  display: flex;
+  width: 78px;
+  min-width: 78px;
+  height: 78px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 7px;
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow:
+    0 0 15px rgba(0, 255, 136, 0.1);
+}
 
-    .career-date {
-      margin-top: 3px;
-      color: var(--green);
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 0.88rem;
-    }
+.company-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
-    .career-location {
-      margin-top: 2px;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
+.career-heading h3 {
+  margin-bottom: 2px;
+  color: #f5fff8;
+  font-size: 1.3rem;
+}
 
-    .career-summary {
-      margin-bottom: 18px;
-      color: #c5e8ce;
-    }
+.company-name {
+  color: #a5ffc5;
+  font-weight: 700;
+}
 
-    .career-points {
-      padding-left: 21px;
-    }
+.career-date {
+  margin-top: 3px;
+  color: #00ff88;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.88rem;
+}
 
-    .career-points li {
-      margin-bottom: 10px;
-    }
+.career-location {
+  margin-top: 2px;
+  color: #92b79d;
+  font-size: 0.88rem;
+}
+
+.career-summary {
+  margin-bottom: 18px;
+  color: #c5e8ce;
+}
+
+.career-points {
+  padding-left: 21px;
+}
+
+.career-points li {
+  margin-bottom: 10px;
+  color: #ccecd5;
+}
+
+.career-points li::marker {
+  color: #00ff88;
+}
+
+/* Mobile timeline */
+@media (max-width: 620px) {
+  .career-list {
+    gap: 25px;
+    padding-left: 32px;
+  }
+
+  .career-list::before {
+    top: 30px;
+    bottom: 30px;
+    left: 8px;
+    width: 2px;
+  }
+
+  .career-card {
+    padding: 23px 20px;
+  }
+
+  .career-card::before {
+    top: 34px;
+    left: -32px;
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+  }
+
+  .career-card::after {
+    top: 41px;
+    left: -22px;
+    width: 22px;
+  }
+
+  .career-card:hover {
+    transform: translateX(3px);
+  }
+
+  .career-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .company-logo-wrapper {
+    width: 68px;
+    min-width: 68px;
+    height: 68px;
+  }
+}
 
     .language-card {
       margin-top: 22px;
