@@ -1,32 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Razin | Cybersecurity Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmad Razin Bin Azman | Cybersecurity Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0f0d;
+      color: #d7ffe0;
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at top right, rgba(0, 255, 140, 0.08), transparent 25%),
+        radial-gradient(circle at bottom left, rgba(0, 255, 140, 0.06), transparent 30%);
+    }
+
+    a {
+      color: #7dffb3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(10, 15, 13, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 255, 140, 0.2);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #8fffba;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #c8ffd8;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 80px 0 50px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, rgba(0,255,140,0.10), rgba(0,255,140,0.03));
+      border: 1px solid rgba(0, 255, 140, 0.2);
+      border-radius: 18px;
+      padding: 40px 30px;
+      box-shadow: 0 0 25px rgba(0, 255, 140, 0.08);
+    }
+
+    .terminal-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.85rem;
+      color: #9fffbe;
+      background: rgba(0, 255, 140, 0.08);
+      border: 1px solid rgba(0, 255, 140, 0.2);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .hero h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #8effb6;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      color: #c6f7d1;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 255, 140, 0.25);
+      transition: 0.25s ease;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: #00d26a;
+      color: #041108;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #21f08a;
+      color: #021006;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #c8ffd8;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 255, 140, 0.08);
+    }
+
+    section {
+      padding: 28px 0 18px;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 4px;
+      height: 28px;
+      background: #00ff8c;
+      border-radius: 10px;
+      box-shadow: 0 0 14px rgba(0, 255, 140, 0.7);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(9, 20, 14, 0.85);
+      border: 1px solid rgba(0, 255, 140, 0.16);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 0 18px rgba(0, 255, 140, 0.04);
+    }
+
+    .card h3 {
+      color: #ffffff;
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: #c7f5d1;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #d5ffe0;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0, 255, 140, 0.08);
+      border: 1px solid rgba(0, 255, 140, 0.18);
+      color: #a9ffca;
+      font-size: 0.9rem;
+    }
+
+    .timeline-item {
+      border-left: 2px solid rgba(0,255,140,0.25);
+      padding-left: 16px;
+      margin-bottom: 18px;
+    }
+
+    .timeline-item h3 {
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: #9ddfb2;
+      font-size: 0.95rem;
+    }
+
+    .project-card {
+      background: linear-gradient(180deg, rgba(13,22,17,0.95), rgba(8,16,12,0.95));
+      border: 1px solid rgba(0, 255, 140, 0.14);
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .project-card h3 {
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(0, 255, 140, 0.15);
+      margin-top: 40px;
+      padding: 24px 0 40px;
+      color: #8db79a;
+      text-align: center;
+    }
+
+    .note {
+      font-size: 0.95rem;
+      color: #a5d9b4;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero h2 {
+        font-size: 1.05rem;
+      }
+
+      .nav-content {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Ahmad Razin</h1>
-    <h2>Cybersecurity Consultant</h2>
 
-    <p>
-        Welcome to my cybersecurity portfolio.
-    </p>
+  <nav class="navbar">
+    <div class="container nav-content">
+      <div class="brand">&gt; razin.sec</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Project References</a>
+        <a href="#education">Education</a>
+      </div>
+    </div>
+  </nav>
 
-    <h3>Areas of Experience</h3>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <div class="terminal-label">[ ACCESS GRANTED ] CYBERSECURITY PORTFOLIO</div>
+        <h1>Ahmad Razin Bin Azman</h1>
+        <h2>Security Consultant | SEC Consult Malaysia</h2>
+        <p>
+          Welcome to my cybersecurity portfolio. I am a security consultant with experience in
+          web, API, mobile, network and source code security assessments across multiple industries
+          and regions.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="https://github.com/Razinalfateh" target="_blank">View GitHub</a>
+          <a class="btn btn-secondary" href="#projects">Project References</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <ul>
-        <li>Web Application Penetration Testing</li>
-        <li>API Security Testing</li>
-        <li>Mobile Application Security Testing</li>
-        <li>Network Penetration Testing</li>
-        <li>Security Configuration Review</li>
-        <li>Source Code Security Review</li>
-    </ul>
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="card">
+        <p>
+          I am a cybersecurity professional focused on penetration testing and security assessment.
+          My experience includes banking systems, trading platforms, telecommunication environments,
+          retail applications and automotive-related systems. My core work covers web application
+          security, API security, mobile application security, source code review, thick client
+          testing, wireless security and internal/external VAPT.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <h3>Projects</h3>
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Core Skills</h2>
+      <div class="card">
+        <div class="tag-list">
+          <span class="tag">Web Application Penetration Testing</span>
+          <span class="tag">API Penetration Testing</span>
+          <span class="tag">Mobile Application Security Assessment</span>
+          <span class="tag">Internal & External VAPT</span>
+          <span class="tag">Source Code Security Review</span>
+          <span class="tag">Network Configuration Security Review</span>
+          <span class="tag">Wireless Security Assessment</span>
+          <span class="tag">Thick Client Application Penetration Testing</span>
+          <span class="tag">PCI ASV External</span>
+          <span class="tag">Chatbot AI Penetration Testing</span>
+          <span class="tag">AWS Cloud Security Audit Assessment</span>
+          <span class="tag">Social Engineering Assessment</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p>Cybersecurity tools and sanitized security write-ups will be added here.</p>
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications & Language Skills</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Certification</h3>
+          <ul>
+            <li>Offsec Certified Professional (OSCP)</li>
+            <li>Offsec Certified Professional Plus (OSCP+)</li>
+            <li>AWS Certified Cloud Practitioner</li>
+            <li>CREST Practitioner Security Analyst (CPSA)</li>
+            <li>CREST Registered Penetration Tester (CRT)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Language Skills</h3>
+          <ul>
+            <li><strong>Malay:</strong> Native</li>
+            <li><strong>English:</strong> Fluent</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Career and Experience in Cyber Security</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="timeline-item">
+            <h3>SEC-Consult</h3>
+            <p class="muted">2024 – Present</p>
+            <p>Security Consultant involved in multiple security assessments across various industries and countries.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>ASK Pentest</h3>
+            <p class="muted">2022 – 2024</p>
+            <p>Worked on offensive security engagements including application, infrastructure and supporting assessments.</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Highlights</h3>
+          <ul>
+            <li>Performed assessments for banking systems, stock market trading platforms, retail, automotive and telecommunication sectors.</li>
+            <li>Delivered testing across Malaysia, Indonesia, Thailand, Vietnam, Singapore and Europe.</li>
+            <li>Handled web, API, mobile, wireless, network, cloud and source code review engagements.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Most Important Project References</h2>
+      <div class="grid-2">
+
+        <div class="project-card">
+          <h3>Security Assessment for Banking Systems and Premises (Malaysia)</h3>
+          <ul>
+            <li>Internal and External Network Vulnerability Assessment and Penetration Testing (VAPT)</li>
+            <li>PCI ASV External</li>
+            <li>API Penetration Testing</li>
+            <li>Web Application Security Assessment and Penetration Testing</li>
+            <li>Mobile Application Security Assessment and Penetration Testing</li>
+            <li>Source Code Security Review</li>
+            <li>Network Configuration Security Review</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Security Assessment for Banking System (Indonesia)</h3>
+          <ul>
+            <li>Web Application Security Assessment and Penetration Testing</li>
+            <li>Mobile Application Security Assessment and Penetration Testing</li>
+            <li>Source Code Security Review</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Stock Market Trading Platform Security Assessment (Thailand)</h3>
+          <ul>
+            <li>Thick Client Application Penetration Testing</li>
+            <li>Web Application Security Assessment and Penetration Testing</li>
+            <li>Social Engineering Assessment</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Stock Market Trading Platform Security Assessment (Vietnam)</h3>
+          <ul>
+            <li>Mobile Application Security Assessment and Penetration Testing</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Security Assessment for Banking System (Singapore)</h3>
+          <ul>
+            <li>Web Application Security Assessment and Penetration Testing</li>
+            <li>Mobile Application Security Assessment and Penetration Testing</li>
+            <li>Source Code Security Review</li>
+            <li>Wireless Security Assessment</li>
+            <li>Internal and External Network Vulnerability Assessment and Penetration Testing (VAPT)</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Security Assessment for Retail Company (Europe)</h3>
+          <ul>
+            <li>API Penetration Testing</li>
+            <li>Web Application Security Assessment and Penetration Testing</li>
+            <li>Chatbot AI Penetration Testing</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Security Assessment for Automotive Company (Europe)</h3>
+          <ul>
+            <li>API Penetration Testing</li>
+            <li>Web Application Security Assessment and Penetration Testing</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Security Assessment for Telecommunication Company (Singapore)</h3>
+          <ul>
+            <li>Mobile Applications Security Assessment and Penetration Testing</li>
+            <li>Web Application Security Assessment and Penetration Testing</li>
+            <li>AWS Cloud Security Audit Assessment</li>
+          </ul>
+        </div>
+
+      </div>
+      <p class="note">
+        Note: Client identities are intentionally generalized for confidentiality.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Educational Background</h2>
+      <div class="card">
+        <h3>Bachelor of Computer Science (Computer Security) (Hons)</h3>
+        <p>Universiti Teknikal Malaysia Melaka (UTeM)</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Ahmad Razin Bin Azman | Cybersecurity Portfolio</p>
+    </div>
+  </footer>
+
 </body>
 </html>
