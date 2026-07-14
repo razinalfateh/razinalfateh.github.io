@@ -2,27 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
     content="Cybersecurity portfolio of Ahmad Razin Bin Azman, Security Consultant specializing in penetration testing and security assessments."
   >
 
-  <title>Ahmad Razin Bin Azman | Cybersecurity Portfolio</title>
+  <title>
+    Ahmad Razin Bin Azman | Cybersecurity Portfolio
+  </title>
 
   <style>
     :root {
       --background: #050b08;
       --background-light: #09130d;
-      --card: rgba(8, 24, 15, 0.88);
-      --card-dark: rgba(4, 13, 8, 0.94);
+      --card: rgba(8, 24, 15, 0.9);
       --green: #00ff88;
-      --green-light: #9cffbd;
-      --green-dark: #00b85f;
+      --green-light: #a5ffc5;
+      --green-dark: #00bd65;
       --white: #f5fff8;
       --text: #d4f5dd;
-      --muted: #94bca1;
+      --muted: #92b79d;
       --border: rgba(0, 255, 136, 0.2);
       --blue: #43bfff;
     }
@@ -35,7 +40,7 @@
     }
 
     html {
-      scroll-padding-top: 85px;
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -67,9 +72,8 @@
       text-decoration: none;
     }
 
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
+    img {
+      max-width: 100%;
     }
 
     #matrix-canvas {
@@ -466,12 +470,6 @@
       gap: 20px;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
     .tag-list {
       display: flex;
       flex-wrap: wrap;
@@ -504,8 +502,11 @@
 
     .cert-card {
       position: relative;
+      display: flex;
+      min-height: 390px;
       overflow: hidden;
-      min-height: 330px;
+      flex-direction: column;
+      align-items: center;
       padding: 28px 20px;
       border-radius: 18px;
       text-align: center;
@@ -549,49 +550,33 @@
       letter-spacing: 0.7px;
     }
 
-    .cert-badge {
+    .badge-image-link {
       position: relative;
       display: flex;
-      width: 125px;
-      height: 125px;
+      width: 175px;
+      height: 175px;
       align-items: center;
       justify-content: center;
-      margin: 12px auto 22px;
-      color: #041109;
-      background: linear-gradient(
-        145deg,
-        #b5ffd0,
-        #00ce6c
-      );
-      clip-path: polygon(
-        25% 5%,
-        75% 5%,
-        100% 50%,
-        75% 95%,
-        25% 95%,
-        0 50%
-      );
-      filter: drop-shadow(
-        0 0 13px rgba(0, 255, 136, 0.48)
-      );
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 1.35rem;
-      font-weight: 900;
-      letter-spacing: 0.5px;
+      margin: 14px auto 22px;
+      border-radius: 50%;
+      transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
     }
 
-    .cert-badge::after {
-      position: absolute;
-      inset: 10px;
-      content: "";
-      border: 2px solid rgba(1, 30, 13, 0.58);
-      clip-path: polygon(
-        25% 5%,
-        75% 5%,
-        100% 50%,
-        75% 95%,
-        25% 95%,
-        0 50%
+    .badge-image-link:hover {
+      transform: scale(1.07);
+      filter:
+        drop-shadow(0 0 10px rgba(0, 255, 136, 0.5))
+        drop-shadow(0 0 22px rgba(0, 255, 136, 0.25));
+    }
+
+    .cert-badge-image {
+      width: 165px;
+      height: 165px;
+      object-fit: contain;
+      filter: drop-shadow(
+        0 0 12px rgba(0, 255, 136, 0.24)
       );
     }
 
@@ -616,6 +601,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      margin-top: auto;
       padding: 9px 14px;
       color: var(--green-light);
       border: 1px solid rgba(0, 255, 136, 0.27);
@@ -633,10 +619,6 @@
       color: #041009;
       background: var(--green);
       box-shadow: 0 0 16px rgba(0, 255, 136, 0.35);
-    }
-
-    .timeline {
-      position: relative;
     }
 
     .timeline-item {
@@ -811,7 +793,6 @@
       }
 
       .grid-2,
-      .grid-3,
       .project-grid {
         grid-template-columns: 1fr;
       }
@@ -947,7 +928,9 @@
     <section id="about">
       <div class="container">
 
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title">
+          About Me
+        </h2>
 
         <div class="card">
           <p>
@@ -966,7 +949,9 @@
     <section id="skills">
       <div class="container">
 
-        <h2 class="section-title">Core Security Skills</h2>
+        <h2 class="section-title">
+          Core Security Skills
+        </h2>
 
         <div class="card">
           <div class="tag-list">
@@ -1033,7 +1018,7 @@
         </h2>
 
         <p class="section-subtitle">
-          Click the verification button to view the official credential.
+          Click the badge or verification button to view the official credential.
         </p>
 
         <div class="cert-grid">
@@ -1044,9 +1029,20 @@
               VERIFIED
             </span>
 
-            <div class="cert-badge">
-              OSCP+
-            </div>
+            <a
+              class="badge-image-link"
+              href="https://credentials.offsec.com/334a0076-1889-4333-9cbe-7ecbdfcf3cf0#acc.uYpkAwVv"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Verify OSCP Plus credential"
+            >
+              <img
+                class="cert-badge-image"
+                src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/181729564"
+                alt="OffSec Certified Professional Plus badge"
+                loading="lazy"
+              >
+            </a>
 
             <h3>
               OffSec Certified Professional Plus
@@ -1073,9 +1069,20 @@
               VERIFIED
             </span>
 
-            <div class="cert-badge">
-              OSCP
-            </div>
+            <a
+              class="badge-image-link"
+              href="https://credentials.offsec.com/a98d468c-b4fa-40e8-b347-240712546176#acc.pIyHOQwi"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Verify OSCP credential"
+            >
+              <img
+                class="cert-badge-image"
+                src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/181729554"
+                alt="OffSec Certified Professional badge"
+                loading="lazy"
+              >
+            </a>
 
             <h3>
               OffSec Certified Professional
@@ -1102,9 +1109,20 @@
               VERIFIED
             </span>
 
-            <div class="cert-badge">
-              CRT
-            </div>
+            <a
+              class="badge-image-link"
+              href="https://www.credly.com/badges/f2959361-0b32-4f2f-9578-ae789dd3bd24/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Verify CREST CRT credential"
+            >
+              <img
+                class="cert-badge-image"
+                src="https://images.credly.com/size/680x680/images/d7e813c1-4ebd-4ee7-82da-9cd400437d9f/image.png"
+                alt="CREST Registered Penetration Tester badge"
+                loading="lazy"
+              >
+            </a>
 
             <h3>
               CREST Registered Penetration Tester
@@ -1131,9 +1149,20 @@
               VERIFIED
             </span>
 
-            <div class="cert-badge">
-              CPSA
-            </div>
+            <a
+              class="badge-image-link"
+              href="https://www.credly.com/badges/96b82055-c6d0-4cda-84aa-d49244acd2c4/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Verify CREST CPSA credential"
+            >
+              <img
+                class="cert-badge-image"
+                src="https://images.credly.com/size/680x680/images/47d8681c-da37-42b5-895e-c90ca4636442/blob"
+                alt="CREST Practitioner Security Analyst badge"
+                loading="lazy"
+              >
+            </a>
 
             <h3>
               CREST Practitioner Security Analyst
@@ -1157,12 +1186,23 @@
           <article class="cert-card">
 
             <span class="cert-status">
-              CERTIFIED
+              VERIFIED
             </span>
 
-            <div class="cert-badge">
-              AWS
-            </div>
+            <a
+              class="badge-image-link"
+              href="https://www.credly.com/badges/c609bd13-43f6-48cf-9e12-03767a60b9f4"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Verify AWS Cloud Practitioner credential"
+            >
+              <img
+                class="cert-badge-image"
+                src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
+                alt="AWS Certified Cloud Practitioner badge"
+                loading="lazy"
+              >
+            </a>
 
             <h3>
               AWS Certified Cloud Practitioner
@@ -1171,6 +1211,15 @@
             <p class="cert-issuer">
               Amazon Web Services
             </p>
+
+            <a
+              class="verify-btn"
+              href="https://www.credly.com/badges/c609bd13-43f6-48cf-9e12-03767a60b9f4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ↗ View Credly Badge
+            </a>
 
           </article>
 
@@ -1187,7 +1236,7 @@
 
         <div class="grid-2">
 
-          <div class="card timeline">
+          <div class="card">
 
             <div class="timeline-item">
 
@@ -1287,12 +1336,10 @@
               <li>PCI ASV External</li>
               <li>API Penetration Testing</li>
               <li>
-                Web Application Security Assessment and Penetration
-                Testing
+                Web Application Security Assessment and Penetration Testing
               </li>
               <li>
-                Mobile Application Security Assessment and Penetration
-                Testing
+                Mobile Application Security Assessment and Penetration Testing
               </li>
               <li>Source Code Security Review</li>
               <li>Network Configuration Security Review</li>
@@ -1312,12 +1359,10 @@
 
             <ul>
               <li>
-                Web Application Security Assessment and Penetration
-                Testing
+                Web Application Security Assessment and Penetration Testing
               </li>
               <li>
-                Mobile Application Security Assessment and Penetration
-                Testing
+                Mobile Application Security Assessment and Penetration Testing
               </li>
               <li>Source Code Security Review</li>
             </ul>
@@ -1340,8 +1385,7 @@
                 Thick Client Application Penetration Testing
               </li>
               <li>
-                Web Application Security Assessment and Penetration
-                Testing
+                Web Application Security Assessment and Penetration Testing
               </li>
               <li>Social Engineering Assessment</li>
             </ul>
@@ -1361,8 +1405,7 @@
 
             <ul>
               <li>
-                Mobile Application Security Assessment and Penetration
-                Testing
+                Mobile Application Security Assessment and Penetration Testing
               </li>
             </ul>
 
@@ -1380,12 +1423,10 @@
 
             <ul>
               <li>
-                Web Application Security Assessment and Penetration
-                Testing
+                Web Application Security Assessment and Penetration Testing
               </li>
               <li>
-                Mobile Application Security Assessment and Penetration
-                Testing
+                Mobile Application Security Assessment and Penetration Testing
               </li>
               <li>Source Code Security Review</li>
               <li>Wireless Security Assessment</li>
@@ -1410,8 +1451,7 @@
             <ul>
               <li>API Penetration Testing</li>
               <li>
-                Web Application Security Assessment and Penetration
-                Testing
+                Web Application Security Assessment and Penetration Testing
               </li>
               <li>Chatbot AI Penetration Testing</li>
             </ul>
@@ -1431,8 +1471,7 @@
             <ul>
               <li>API Penetration Testing</li>
               <li>
-                Web Application Security Assessment and Penetration
-                Testing
+                Web Application Security Assessment and Penetration Testing
               </li>
             </ul>
 
@@ -1451,12 +1490,10 @@
 
             <ul>
               <li>
-                Mobile Application Security Assessment and Penetration
-                Testing
+                Mobile Application Security Assessment and Penetration Testing
               </li>
               <li>
-                Web Application Security Assessment and Penetration
-                Testing
+                Web Application Security Assessment and Penetration Testing
               </li>
               <li>AWS Cloud Security Audit Assessment</li>
             </ul>
@@ -1516,10 +1553,13 @@
     /*
      * Typing animation
      */
-    const typingElement = document.getElementById("typing-text");
+    const typingElement =
+      document.getElementById("typing-text");
 
     if (typingElement) {
-      const typingContent = typingElement.dataset.text || "";
+      const typingContent =
+        typingElement.dataset.text || "";
+
       let typingIndex = 0;
 
       function typeCharacter() {
@@ -1529,18 +1569,27 @@
 
           typingIndex += 1;
 
-          window.setTimeout(typeCharacter, 40);
+          window.setTimeout(
+            typeCharacter,
+            40
+          );
         }
       }
 
-      window.setTimeout(typeCharacter, 450);
+      window.setTimeout(
+        typeCharacter,
+        450
+      );
     }
 
     /*
      * Matrix background animation
      */
-    const canvas = document.getElementById("matrix-canvas");
-    const context = canvas.getContext("2d");
+    const canvas =
+      document.getElementById("matrix-canvas");
+
+    const context =
+      canvas.getContext("2d");
 
     const characters =
       "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*<>/{}[]";
@@ -1551,13 +1600,20 @@
     let drops = [];
 
     function resizeMatrix() {
-      const pixelRatio = window.devicePixelRatio || 1;
+      const pixelRatio =
+        window.devicePixelRatio || 1;
 
-      canvas.width = window.innerWidth * pixelRatio;
-      canvas.height = window.innerHeight * pixelRatio;
+      canvas.width =
+        window.innerWidth * pixelRatio;
 
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
+      canvas.height =
+        window.innerHeight * pixelRatio;
+
+      canvas.style.width =
+        `${window.innerWidth}px`;
+
+      canvas.style.height =
+        `${window.innerHeight}px`;
 
       context.setTransform(
         pixelRatio,
@@ -1576,7 +1632,8 @@
     }
 
     function drawMatrix() {
-      context.fillStyle = "rgba(5, 11, 8, 0.09)";
+      context.fillStyle =
+        "rgba(5, 11, 8, 0.09)";
 
       context.fillRect(
         0,
@@ -1595,9 +1652,10 @@
         index < drops.length;
         index += 1
       ) {
-        const randomIndex = Math.floor(
-          Math.random() * characters.length
-        );
+        const randomIndex =
+          Math.floor(
+            Math.random() * characters.length
+          );
 
         const character =
           characters.charAt(randomIndex);
@@ -1627,9 +1685,10 @@
       resizeMatrix
     );
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const reduceMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
     if (!reduceMotion) {
       window.setInterval(
