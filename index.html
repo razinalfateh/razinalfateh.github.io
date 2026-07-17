@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="Cybersecurity portfolio of Ahmad Razin Bin Azman, Security Consultant specialising in penetration testing and security assessments."
+    content="Cybersecurity portfolio of Ahmad Razin Bin Azman, Senior Security Consultant specialising in penetration testing and security assessments."
   >
 
   <title>
@@ -753,6 +753,38 @@
         0 0 15px rgba(0, 255, 136, 0.55);
     }
 
+    .role-current {
+      padding: 20px 22px 20px 44px;
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 14px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 255, 136, 0.08),
+          rgba(0, 255, 136, 0.02)
+        );
+    }
+
+    .role-current::before {
+      top: 29px;
+      left: 20px;
+    }
+
+    .current-role-label {
+      display: inline-block;
+      margin-bottom: 9px;
+      padding: 4px 9px;
+      color: #041009;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow:
+        0 0 12px rgba(0, 255, 136, 0.35);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.7px;
+    }
+
     .role-title {
       margin-bottom: 3px;
       color: var(--green-light);
@@ -811,10 +843,6 @@
       transform: translate(-50%, -50%);
     }
 
-    /*
-     * Connector appears only between companies.
-     */
-
     .career-card-connector {
       position: absolute;
       bottom: -64px;
@@ -835,10 +863,6 @@
       transform: translateX(-50%);
     }
 
-    /*
-     * Glowing dot in the centre.
-     */
-
     .career-card-connector::before {
       position: absolute;
       top: 50%;
@@ -855,10 +879,6 @@
         0 0 28px rgba(0, 255, 136, 0.35);
       transform: translate(-50%, -50%);
     }
-
-    /*
-     * Small line showing connector entering next card.
-     */
 
     .career-card-connector::after {
       position: absolute;
@@ -1248,6 +1268,15 @@
       .role-block {
         padding-left: 19px;
       }
+
+      .role-current {
+        padding: 18px 18px 18px 39px;
+      }
+
+      .role-current::before {
+        left: 17px;
+        top: 27px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1307,7 +1336,7 @@
         <div
           id="typing-text"
           class="typing-line"
-          data-text="Security Consultant | Offensive Security | Penetration Testing"
+          data-text="Senior Security Consultant | Offensive Security | Penetration Testing"
         ></div>
 
         <p class="hero-description">
@@ -1714,42 +1743,38 @@
 
             </div>
 
-            <div class="role-block">
+            <!-- CURRENT SENIOR ROLE -->
+
+            <div class="role-block role-current">
+
+              <span class="current-role-label">
+                CURRENT ROLE
+              </span>
 
               <h4 class="role-title">
-                Security Consultant
+                Senior Security Consultant
               </h4>
 
               <p class="role-date">
-                September 2024 – Present
+                July 2026 – Present
               </p>
 
               <p class="career-summary">
-                Conducting security assessments to identify vulnerabilities,
-                validate security risks and strengthen clients' overall
-                security posture.
+                Leading and delivering security assessments to identify
+                vulnerabilities, validate security risks and strengthen
+                clients' overall security posture.
               </p>
 
               <ul class="career-points">
 
                 <li>
-                  Perform penetration testing for web applications, APIs,
-                  mobile applications, internal networks and external networks.
+                  Lead and perform penetration testing for web applications,
+                  APIs, mobile applications and internal or external networks.
                 </li>
 
                 <li>
-                  Conduct security configuration reviews for firewalls,
-                  network devices and enterprise technologies.
-                </li>
-
-                <li>
-                  Review application architecture, source code and deployment
-                  configurations for security weaknesses.
-                </li>
-
-                <li>
-                  Validate attack scenarios and identify potential
-                  technical and business impact.
+                  Review technical findings, attack scenarios and potential
+                  business impact.
                 </li>
 
                 <li>
@@ -1758,8 +1783,60 @@
                 </li>
 
                 <li>
-                  Support remediation verification, vulnerability retesting
-                  and collaboration with clients and global teams.
+                  Support project delivery, remediation verification,
+                  vulnerability retesting and collaboration with clients
+                  and global teams.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="role-divider"></div>
+
+            <!-- PREVIOUS SEC CONSULT ROLE -->
+
+            <div class="role-block">
+
+              <h4 class="role-title">
+                Security Consultant
+              </h4>
+
+              <p class="role-date">
+                September 2024 – July 2026
+              </p>
+
+              <p class="career-summary">
+                Conducted penetration testing, security reviews and
+                remediation verification across application and
+                infrastructure environments.
+              </p>
+
+              <ul class="career-points">
+
+                <li>
+                  Performed penetration testing for web applications, APIs,
+                  mobile applications, internal networks and external networks.
+                </li>
+
+                <li>
+                  Conducted security configuration reviews for firewalls,
+                  network devices and enterprise technologies.
+                </li>
+
+                <li>
+                  Reviewed application architecture, source code and
+                  deployment configurations for security weaknesses.
+                </li>
+
+                <li>
+                  Validated attack scenarios and identified potential
+                  technical and business impact.
+                </li>
+
+                <li>
+                  Prepared technical reports, management summaries and
+                  remediation recommendations.
                 </li>
 
               </ul>
